@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+
+<html>
+    <script type="text/javascript" charset="utf-8" src="map.js"></script>
+    <script type="text/javascript" charset="utf-8" src="romania.js"></script>
+    <script type="text/javascript" charset="utf-8" src="route_finder.js"></script>
+    <head>
+        <title>Route Finder: Romania</title>
+        
+    </head>
+    <body onload='route_finder = RouteFinder();'>
+        <h1>Route Finder: Romania Edition</h1>
+        <div id="container" style="margin: auto; width: 960px; border: 1px solid black; height: 475px;">
+            <canvas id='map' height='475px' width='775px' onclick='route_finder.clicked()'>
+            <p>Your browser does not support canvas.</p>
+            </canvas>
+            <div id="controller" style="float: right; width: 160px; height: 475px; background-color: #EEE; padding-left: 10px;">
+                <span id='details'></span>
+                Cost Function:<select name='cost' id='cost'>
+                    <option value='a_star'>A*</option>
+                    <option value='breadth_first'>Breadth-First</option>
+                    <option value='uniform_cost'>Uniform-Cost</option>
+                </select><p/>
+                <a href="#" onclick="route_finder.start()" id='start'>Start</a> || 
+                <a href="#" onclick="route_finder.reset()" id='start'>Reset</a>
+                <span id='results'></span>
+            </div>
+            <div id='help'>
+                <h2>Help</h2>
+                <h3>Moving Start/Goal</h3>
+                <p>To move the start or the goal, first click on the current start/goal, then click on the city you want to be the new start/goal.</p>
+
+                <h3>Cost Functions</h3>
+                <p>Each cost function will make the finder work in a slighty different way.</p>
+                <ul>
+                    <li>A*: Uses a straight-line heuristic combined with uniform-cost.</li>
+                    <li>Breadth-First: Finds the shortest path, not in km, but in hops.</li>
+                    <li>Uniform-Cost: Finds the shortest path in km.</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
